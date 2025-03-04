@@ -20,7 +20,9 @@ mongoose
   })
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.error(err));
-
-app.use("/api/admin", adminRouter);
+//Routes
+app.use("/api/admin", require("./routes/admin"));
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/users", require("./routes/user"));
 const PORT = process.env.PORT || 3004;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
